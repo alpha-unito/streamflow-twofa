@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://streamflow.di.unito.it/schemas/deployment/connector/totp_ssh.json",
+  "type": "object",
+  "allOf": [
+    {
+        "$ref": "https://streamflow.di.unito.it/schemas/deployment/connector/base/ssh.json"
+    }
+  ],
+  "properties": {
+    "totpInterval": {
+      "type": "int",
+      "description": "The time period (in seconds) for which a one-time password remains active before the next one is generated.",
+      "default": 30
+    },
+    "totpSecretFile": {
+      "type": "string",
+      "description": "Path to a file containing the TOTP generator's secret key"
+    }
+  },
+  "required": [
+    "totpSecretFile"
+  ],
+  "unevaluatedProperties": false
+}
